@@ -1,15 +1,21 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {StyleProp, Text, TextStyle, View} from 'react-native';
 import PropTypes from 'prop-types';
+import {getFontFamily} from '../../../assets/fonts/helper';
 
 type PropTypes = {
   title: string;
 };
 
 function Header({title}: PropTypes): React.JSX.Element {
+  const titleStyles: StyleProp<TextStyle> = {
+    fontSize: 50,
+    fontFamily: getFontFamily('Inter', '500'),
+  };
+
   return (
     <View>
-      <Text>{title}</Text>
+      <Text style={titleStyles}>{title}</Text>
     </View>
   );
 }
