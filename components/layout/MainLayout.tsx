@@ -2,15 +2,15 @@ import React from 'react';
 import {View} from 'react-native';
 import Header from './Header/Header';
 import style from './style';
-import StoriesList from '../stories-list/StoriesList';
+import StoriesList from '../storiesList/StoriesList';
 
-function MainLayout(): React.JSX.Element {
+const MainLayout: React.FC = () => {
   return (
     <View style={style.layout}>
       <Header title={"Let's explore"} />
       <StoriesList />
     </View>
   );
-}
+};
 
 export default MainLayout;

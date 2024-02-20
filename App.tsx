@@ -8,7 +8,7 @@ import {Colors} from 'react-native/Libraries/NewAppScreen';
 import MainLayout from './components/layout/MainLayout';
 import style from './assets/styles/globalStyles';
 
-function App(): React.JSX.Element {
+const App: React.FC = () => {
   // const isDarkMode = useColorScheme() === 'dark';
   const backgroundStyle: StyleProp<ViewStyle> = {
     backgroundColor:
@@ -20,6 +20,6 @@ function App(): React.JSX.Element {
       <MainLayout />
     </SafeAreaView>
   );
-}
+};
 
 export default App;

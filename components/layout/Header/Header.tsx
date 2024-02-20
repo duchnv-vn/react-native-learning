@@ -5,11 +5,11 @@ import {faEnvelope} from '@fortawesome/free-solid-svg-icons';
 
 import style from './style';
 
-type PropTypes = {
+type PropsType = {
   title: string;
 };
 
-function Header({title}: PropTypes): React.JSX.Element {
+const Header: React.FC<PropsType> = ({title}) => {
   const [unreadMsgCount, _setUnreadMsgCount] = useState(0);
 
   return (
@@ -23,6 +23,6 @@ function Header({title}: PropTypes): React.JSX.Element {
       </TouchableOpacity>
     </View>
   );
-}
+};
 
 export default Header;
