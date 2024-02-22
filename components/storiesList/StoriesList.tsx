@@ -9,7 +9,7 @@ const PAGE_SIZE = 4;
 
 const userStories: UserStory[] = [];
 
-for (let i = 0; i < 40; i++) {
+for (let i = 0; i < 10; i++) {
   const story = {
     id: i,
     username: `user ${i}`,
@@ -19,7 +19,7 @@ for (let i = 0; i < 40; i++) {
 }
 
 const StoriesList: React.FC = () => {
-  const [storyCurrentPage, setStoryCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
   const [storiesData, setStoriesData] = useState<UserStory[]>([]);
   const [isLoadingStories, setIsLoadingStories] = useState(false);
 
@@ -30,10 +30,10 @@ const StoriesList: React.FC = () => {
     setIsLoadingStories(true);
 
     setTimeout(() => {
-      const stories = fetchStories({page: storyCurrentPage, size: PAGE_SIZE});
+      const stories = fetchStories({page: currentPage, size: PAGE_SIZE});
 
       if (stories.length > 0) {
-        setStoryCurrentPage(prev => (prev += 1));
+        setCurrentPage(prev => (prev += 1));
         setStoriesData(list => list.concat(stories));
       }
 

@@ -2,7 +2,8 @@ import {StyleSheet} from 'react-native';
 
 const style = StyleSheet.create({
   layout: {
-    padding: 16,
+    paddingTop: 16,
+    flex: 1,
   },
 });
 
