@@ -4,6 +4,7 @@ import {UserPost} from '../../common/types/posts.type';
 import PostItem from '../PostItem/PostItem';
 import Loading from '../Loading/Loading';
 import style from './style';
+import {horizontalScale} from '../../common/helpers/scaling';
 
 const PAGE_SIZE = 4;
 
@@ -24,6 +25,7 @@ for (let i = 0; i < 10; i++) {
 }
 
 const PostList: React.FC = () => {
+  const loadingDimensions = horizontalScale(50);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsData, setPostsData] = useState<UserPost[]>([]);
   const [isLoadingPosts, setIsLoadingPosts] = useState(false);
@@ -89,7 +91,7 @@ const PostList: React.FC = () => {
       />
       {isLoadingPosts && (
         <View style={style.loadingContainer}>
-          <Loading height={50} width={50} />
+          <Loading height={loadingDimensions} width={loadingDimensions} />
         </View>
       )}
       {isNoMorePosts && (

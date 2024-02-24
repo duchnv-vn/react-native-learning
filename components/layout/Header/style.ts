@@ -1,5 +1,11 @@
 import {StyleSheet} from 'react-native';
 import {getFontFamily} from '../../../assets/fonts/helper';
+import {
+  fontSizeScale,
+  horizontalScale,
+  verticalScale,
+} from '../../../common/helpers/scaling';
+import {colors} from '../../../common/constants/colors';
 
 const style = StyleSheet.create({
   header: {
@@ -7,34 +13,34 @@ const style = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginHorizontal: 16,
+    marginHorizontal: horizontalScale(16),
   },
   title: {
     color: '#022150',
-    fontSize: 24,
+    fontSize: fontSizeScale(24),
     fontFamily: getFontFamily('Inter', '600'),
     letterSpacing: 0.48,
   },
   iconWrapper: {
-    padding: 14,
+    padding: horizontalScale(14),
     backgroundColor: '#e8e7e7',
     borderRadius: 100,
   },
   unreadMsgWrapper: {
-    backgroundColor: '#f35bac',
+    backgroundColor: colors.pink,
     borderRadius: 100,
     aspectRatio: 1,
-    width: 18,
+    width: horizontalScale(18),
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
     position: 'absolute',
-    right: 6,
-    top: 6,
+    right: horizontalScale(6),
+    top: verticalScale(6),
   },
   unreadMsg: {
     color: '#ffffff',
-    fontSize: 12,
+    fontSize: fontSizeScale(12),
     fontFamily: getFontFamily('Inter', '600'),
   },
 });

@@ -1,14 +1,15 @@
 import {StyleSheet} from 'react-native';
 import {colors} from '../../common/constants/colors';
+import {horizontalScale, verticalScale} from '../../common/helpers/scaling';
 
 const style = StyleSheet.create({
   postsListContainer: {
-    marginHorizontal: 16,
-    marginTop: 20,
+    marginHorizontal: horizontalScale(16),
+    marginTop: verticalScale(20),
     flex: 1,
   },
   postSeparator: {
-    marginVertical: 18,
+    marginVertical: verticalScale(18),
     borderWidth: 0.25,
     borderBottomColor: colors.extraLightGray,
   },
@@ -19,7 +20,7 @@ const style = StyleSheet.create({
   noMorePostText: {
     textAlign: 'center',
     color: colors.lightGray,
-    marginVertical: 20,
+    marginVertical: verticalScale(20),
   },
 });
 

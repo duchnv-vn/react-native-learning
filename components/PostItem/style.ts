@@ -1,6 +1,11 @@
 import {StyleSheet} from 'react-native';
 import {getFontFamily} from '../../assets/fonts/helper';
 import {colors} from '../../common/constants/colors';
+import {
+  fontSizeScale,
+  horizontalScale,
+  verticalScale,
+} from '../../common/helpers/scaling';
 
 const style = StyleSheet.create({
   postItem: {},
@@ -15,30 +20,30 @@ const style = StyleSheet.create({
     justifyContent: 'flex-start',
   },
   userInfo: {
-    marginLeft: 10,
+    marginLeft: horizontalScale(10),
   },
   address: {
     color: colors.lightGray,
     fontFamily: getFontFamily('Inter', '400'),
-    fontSize: 10,
-    marginTop: 2,
+    fontSize: fontSizeScale(10),
+    marginTop: verticalScale(2),
   },
   username: {
     color: '#000000',
     fontFamily: getFontFamily('Inter', '500'),
-    fontSize: 14,
+    fontSize: fontSizeScale(14),
   },
   thumbnailContainer: {
-    marginTop: 10,
+    marginTop: verticalScale(10),
   },
   thumbnail: {
-    height: 220,
-    borderRadius: 15,
+    height: horizontalScale(220),
+    borderRadius: horizontalScale(15),
   },
   postInteractionBar: {
-    marginTop: 10,
+    marginTop: verticalScale(10),
     flexDirection: 'row',
-    gap: 32,
+    gap: horizontalScale(32),
   },
 });
 

@@ -1,8 +1,9 @@
 import {StyleSheet} from 'react-native';
+import {verticalScale} from '../../common/helpers/scaling';
 
 const style = StyleSheet.create({
   layout: {
-    paddingTop: 16,
+    paddingTop: verticalScale(16),
     flex: 1,
   },
 });

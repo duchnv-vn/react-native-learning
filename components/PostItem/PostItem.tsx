@@ -12,6 +12,7 @@ import UserAvatar from '../UserAvatar/UserAvatar';
 import InteractButton from '../InteractButton/InteractButton';
 import style from './style';
 import {colors} from '../../common/constants/colors';
+import {fontSizeScale, horizontalScale} from '../../common/helpers/scaling';
 
 type PropsType = {
   data: UserPost;
@@ -32,7 +33,10 @@ const PostItem: React.FC<PropsType> = ({data}) => {
     <View key={id} style={style.postItem}>
       <View style={style.postHead}>
         <View style={style.userInfoContainer}>
-          <UserAvatar imageUrl={userImageUrl} imageDimensions={35} />
+          <UserAvatar
+            imageUrl={userImageUrl}
+            imageDimensions={horizontalScale(35)}
+          />
           <View style={style.userInfo}>
             <Text style={style.username}>{username}</Text>
             <Text style={style.address}>{address}</Text>
@@ -41,7 +45,7 @@ const PostItem: React.FC<PropsType> = ({data}) => {
         <TouchableOpacity>
           <FontAwesomeIcon
             icon={faEllipsis}
-            size={16}
+            size={fontSizeScale(16)}
             color={colors.lightGray}
           />
         </TouchableOpacity>

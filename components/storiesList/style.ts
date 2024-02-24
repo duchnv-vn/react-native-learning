@@ -1,8 +1,9 @@
 import {StyleSheet} from 'react-native';
+import {verticalScale} from '../../common/helpers/scaling';
 
 const style = StyleSheet.create({
   storiesListContainer: {
-    marginTop: 14,
+    marginTop: verticalScale(14),
   },
 });
 
