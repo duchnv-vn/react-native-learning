@@ -1,25 +1,37 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Routes} from './Routes';
+import {createDrawerNavigator} from '@react-navigation/drawer';
+
+const routesList = Object.values(Routes);
 
 const Stack = createStackNavigator();
+const Drawer = createDrawerNavigator();
 
-const MainNavigation: React.FC = () => {
-  const initialRouteName = Routes.Home.name;
+const noHeaderConfig = {header: () => null, headerShown: false};
 
-  const renderScreens = () => {
-    return Object.values(Routes).map(({name, component}, index) => {
-      return <Stack.Screen {...{name, component}} key={index} />;
+export const MainMenuNagivation: React.FC = () => {
+  const renderDrawerScreen = () => {
+    return routesList.map(({name, component}, index) => {
+      return <Drawer.Screen {...{name, component}} key={index} />;
     });
   };
 
   return (
-    <Stack.Navigator
-      screenOptions={{header: () => null, headerShown: false}}
-      initialRouteName={initialRouteName}>
-      {renderScreens()}
-    </Stack.Navigator>
+    <Drawer.Navigator screenOptions={noHeaderConfig}>
+      {renderDrawerScreen()}
+    </Drawer.Navigator>
   );
 };
 
-export default MainNavigation;
+export const MainNavigation: React.FC = () => {
+  const initialRouteName = Routes.Home.name;
+
+  return (
+    <Stack.Navigator
+      screenOptions={noHeaderConfig}
+      initialRouteName={initialRouteName}>
+      <Stack.Screen name={'Drawer'} component={MainMenuNagivation} />
+    </Stack.Navigator>
+  );
+};
