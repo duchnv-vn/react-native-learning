@@ -8,7 +8,7 @@
         "**/Thumbs.db": true,
         "node_modules": true,
         "ios": true,
-        "android": true,
+        "android": false,
         ".bundle": true,
         "__tests__": true
     }

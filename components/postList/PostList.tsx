@@ -3,8 +3,9 @@ import {FlatList, Text, View} from 'react-native';
 import {UserPost} from '../../common/types/posts.type';
 import PostItem from '../PostItem/PostItem';
 import Loading from '../Loading/Loading';
-import style from './style';
 import {horizontalScale} from '../../common/helpers/scaling';
+import style from './style';
+import {NavigationHelpers} from '@react-navigation/native';
 
 const PAGE_SIZE = 4;
 
@@ -24,7 +25,11 @@ for (let i = 0; i < 10; i++) {
   userPosts.push(post);
 }
 
-const PostList: React.FC = () => {
+type PropsType = {
+  navigation: NavigationHelpers<any>;
+};
+
+const PostList: React.FC<PropsType> = ({navigation}) => {
   const loadingDimensions = horizontalScale(50);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsData, setPostsData] = useState<UserPost[]>([]);
@@ -39,11 +44,11 @@ const PostList: React.FC = () => {
     setIsLoadingPosts(true);
 
     setTimeout(() => {
-      const stories = fetchPosts({page: currentPage, size: PAGE_SIZE});
+      const posts = fetchPosts({page: currentPage, size: PAGE_SIZE});
 
-      if (stories.length > 0) {
+      if (posts.length > 0) {
         setCurrentPage(prev => (prev += 1));
-        setPostsData(list => list.concat(stories));
+        setPostsData(list => list.concat(posts));
       } else {
         setNoMorePosts(true);
       }
@@ -70,7 +75,7 @@ const PostList: React.FC = () => {
   const renderPostItem = ({item}: {item: UserPost}) => {
     return (
       <View>
-        <PostItem data={item} />
+        <PostItem data={item} navigation={navigation} />
       </View>
     );
   };

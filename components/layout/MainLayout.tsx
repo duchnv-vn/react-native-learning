@@ -1,17 +1,23 @@
 import React from 'react';
-import {View} from 'react-native';
-import Header from './Header/Header';
+import {Platform, SafeAreaView} from 'react-native';
+import CustomStatusBar from '../StatusBar/StatusBar';
 import style from './style';
-import StoriesList from '../storiesList/StoriesList';
-import PostList from '../postList/PostList';
 
-const MainLayout: React.FC = () => {
+type PropsType = {
+  children: React.JSX.Element;
+};
+
+const MainLayout: React.FC<PropsType> = ({children}) => {
+  /* const isDarkMode = useColorScheme() === 'dark';
+  const backgroundStyle: StyleProp<ViewStyle> = {
+    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+  }; */
+
   return (
-    <View style={style.layout}>
-      <Header title={"Let's explore"} />
-      <StoriesList />
-      <PostList />
-    </View>
+    <SafeAreaView style={{...style.layout}}>
+      {Platform.OS === 'android' && <CustomStatusBar />}
+      {children}
+    </SafeAreaView>
   );
 };
 

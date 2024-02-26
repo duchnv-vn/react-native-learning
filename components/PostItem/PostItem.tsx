@@ -13,12 +13,15 @@ import InteractButton from '../InteractButton/InteractButton';
 import style from './style';
 import {colors} from '../../common/constants/colors';
 import {fontSizeScale, horizontalScale} from '../../common/helpers/scaling';
+import {NavigationHelpers} from '@react-navigation/native';
+import {Routes} from '../../navigation/Routes';
 
 type PropsType = {
   data: UserPost;
+  navigation: NavigationHelpers<any>;
 };
 
-const PostItem: React.FC<PropsType> = ({data}) => {
+const PostItem: React.FC<PropsType> = ({data, navigation}) => {
   const {
     id,
     thumbnailUrl,
@@ -29,6 +32,11 @@ const PostItem: React.FC<PropsType> = ({data}) => {
     comments,
     likes,
   } = data;
+
+  const moveToProfilePage = () => {
+    navigation.navigate(Routes.Profile.name);
+  };
+
   return (
     <View key={id} style={style.postItem}>
       <View style={style.postHead}>
@@ -38,7 +46,9 @@ const PostItem: React.FC<PropsType> = ({data}) => {
             imageDimensions={horizontalScale(35)}
           />
           <View style={style.userInfo}>
-            <Text style={style.username}>{username}</Text>
+            <Text style={style.username} onPress={moveToProfilePage}>
+              {username}
+            </Text>
             <Text style={style.address}>{address}</Text>
           </View>
         </View>

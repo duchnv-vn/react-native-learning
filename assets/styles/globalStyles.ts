@@ -1,9 +1,5 @@
 import {StyleSheet} from 'react-native';
 
-const style = StyleSheet.create({
-  app: {
-    flex: 1,
-  },
-});
+const style = StyleSheet.create({});
 
 export default style;
