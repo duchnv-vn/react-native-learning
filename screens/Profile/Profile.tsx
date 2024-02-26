@@ -1,21 +1,17 @@
 import React from 'react';
-import {Text, TouchableOpacity} from 'react-native';
+import {ScrollView} from 'react-native';
 import MainLayout from '../../components/layout/MainLayout';
+import style from './style';
 
 type PropsType = {
   navigation: any;
 };
 
-const Profile: React.FC<PropsType> = ({navigation}) => {
-  const textStyle = {color: 'black'};
-
+const Profile: React.FC<PropsType> = ({}) => {
   return (
     <MainLayout>
       <>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Text style={textStyle}>Go back</Text>
-        </TouchableOpacity>
-        <Text style={textStyle}>Profile page.</Text>
+        <ScrollView contentContainerStyle={style.scrollView} />
       </>
     </MainLayout>
   );
