@@ -1,5 +1,9 @@
 import {StyleSheet} from 'react-native';
 
-const style = StyleSheet.create({});
+const globalStyle = StyleSheet.create({
+  flexGrow: {
+    flexGrow: 1,
+  },
+});
 
-export default style;
+export default globalStyle;

@@ -10,6 +10,8 @@ const Drawer = createDrawerNavigator();
 
 const noHeaderConfig = {header: () => null, headerShown: false};
 
+const initialRouteName = Routes.Profile.name;
+
 export const MainMenuNagivation: React.FC = () => {
   const renderDrawerScreen = () => {
     return routesList.map(({name, component}, index) => {
@@ -18,18 +20,18 @@ export const MainMenuNagivation: React.FC = () => {
   };
 
   return (
-    <Drawer.Navigator screenOptions={noHeaderConfig}>
+    <Drawer.Navigator
+      screenOptions={{...noHeaderConfig}}
+      initialRouteName={initialRouteName}>
       {renderDrawerScreen()}
     </Drawer.Navigator>
   );
 };
 
 export const MainNavigation: React.FC = () => {
-  const initialRouteName = Routes.Home.name;
-
   return (
     <Stack.Navigator
-      screenOptions={noHeaderConfig}
+      screenOptions={{...noHeaderConfig}}
       initialRouteName={initialRouteName}>
       <Stack.Screen name={'Drawer'} component={MainMenuNagivation} />
     </Stack.Navigator>

@@ -16,7 +16,7 @@ const style = StyleSheet.create({
     marginHorizontal: horizontalScale(16),
   },
   title: {
-    color: '#022150',
+    color: colors.darkBlue,
     fontSize: fontSizeScale(24),
     fontFamily: getFontFamily('Inter', '600'),
     letterSpacing: 0.48,
