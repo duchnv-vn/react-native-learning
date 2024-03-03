@@ -8,7 +8,9 @@ import {colors} from '../../common/constants/colors';
 import {getFontFamily} from '../../assets/fonts/helper';
 
 const style = StyleSheet.create({
-  userInfoContainer: {},
+  ProfileContainer: {
+    margin: 'auto',
+  },
   userAvatarContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
@@ -51,8 +53,20 @@ const style = StyleSheet.create({
   },
   statItemSeparator: {
     borderColor: colors.lightGray,
-    borderRightWidth: 0.5,
+    borderRightWidth: 1,
+    opacity: 0.2,
     height: '50%',
+  },
+  tabsContainer: {
+    marginTop: verticalScale(16),
+    flex: 1,
+  },
+  statSeparator: {
+    borderBottomColor: colors.lightGray,
+    borderBottomWidth: 1,
+    opacity: 0.2,
+    marginTop: verticalScale(16),
+    marginHorizontal: horizontalScale(24),
   },
 });
 

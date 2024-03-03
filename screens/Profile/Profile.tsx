@@ -4,6 +4,7 @@ import MainLayout from '../../components/layout/MainLayout';
 import UserAvatar from '../../components/UserAvatar/UserAvatar';
 import {colors} from '../../common/constants/colors';
 import {convertNumberToShorter} from '../../common/helpers/common';
+import ProfileTabs from '../../components/ProfileTabs/ProfileTabs';
 import globalStyle from '../../assets/styles/globalStyles';
 import style from './style';
 
@@ -100,12 +101,15 @@ const Profile: React.FC<ProfilePropsType> = ({}) => {
 
   return (
     <MainLayout>
-      <ScrollView contentContainerStyle={globalStyle.flexGrow}>
-        <View style={style.userInfoContainer}>
+      <ScrollView
+        contentContainerStyle={[globalStyle.flexGrow, style.ProfileContainer]}>
+        <View>
           <UserAvatarContainer {...{imageUrl}} />
           <UserName {...{username}} />
         </View>
         <StatsBar {...{following, followers, posts}} />
+        <View style={style.statSeparator} />
+        <ProfileTabs customStyles={style.tabsContainer} />
       </ScrollView>
     </MainLayout>
   );

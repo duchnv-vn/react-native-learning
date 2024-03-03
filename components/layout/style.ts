@@ -6,7 +6,7 @@ const style = StyleSheet.create({
   layout: {
     paddingTop: verticalScale(16),
     flex: 1,
-    backgroundColor: colors.extraLightGray,
+    backgroundColor: colors.white,
   },
 });
 
