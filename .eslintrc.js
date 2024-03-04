@@ -3,5 +3,6 @@ module.exports = {
   extends: '@react-native',
   rules: {
     'react-hooks/exhaustive-deps': 'off',
+    'react/no-unstable-nested-components': 'off',
   },
 };

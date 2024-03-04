@@ -58,7 +58,6 @@ const style = StyleSheet.create({
     height: '50%',
   },
   tabsContainer: {
-    marginTop: verticalScale(16),
     flex: 1,
   },
   statSeparator: {
